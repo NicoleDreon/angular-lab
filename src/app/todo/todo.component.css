@@ -1,0 +1,27 @@
+.main {
+  display: flex;
+  justify-content: center;
+}
+
+.todos-container {
+  background-color: white;
+  width: 75%;
+  border-radius: 5px;
+}
+
+.task-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-start {
+  display: flex;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.filter-container {
+  display: flex;
+}

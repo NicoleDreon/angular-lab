@@ -1,0 +1,34 @@
+<main class="main">
+  <section class="todos-container">
+    <h1>TODO List</h1>
+    <p>A place to store your todos</p>
+    <form
+      class="filter-container"
+      #toDos="ngForm"
+      (input)="setFilterToDos(toDos)"
+    >
+      <label for="searchTerm">Filter your to-dos</label>
+      <input type="text" id="searchTerm" name="searchTerm" />
+    </form>
+    <ol>
+      <!-- all structural directives will follow this formula *="" -->
+      <!-- ngFor of is used when you want to do something repeated -->
+      <li *ngFor="let todo of filetrToDos(); index as i">
+        <div class="task-container">
+          <div class="task-start">
+            <button *ngIf="!todo.completed" (click)="completeTask(todo)">
+              Complete
+            </button>
+            <p [ngClass]="{ strikethrough: todo.completed }">{{ todo.task }}</p>
+          </div>
+          <button (click)="removeTask('todo', i)">X</button>
+        </div>
+      </li>
+    </ol>
+    <form #addNewToDo="ngForm" (ngSubmit)="addTask(addNewToDo)">
+      <label for="addTask">Add your to-do</label>
+      <input type="text" class="addTask" id="addTask" name="addTask" ngModel />
+      <button>Add</button>
+    </form>
+  </section>
+</main>
